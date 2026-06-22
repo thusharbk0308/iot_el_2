@@ -20,10 +20,10 @@ class FaceEngine:
         os.makedirs(config.MODELS_DIR, exist_ok=True)
         
         # Initialize MTCNN for detection (keep_all=True to handle multiple faces)
+        # Note: MTCNN in facenet-pytorch is always pretrained, no 'pretrained' argument needed
         self.mtcnn = MTCNN(
-            keep_all=True, 
-            device=self.device,
-            pretrained=True
+            keep_all=True,
+            device=self.device
         )
         
         # Initialize InceptionResnetV1 for embedding generation (FaceNet)
